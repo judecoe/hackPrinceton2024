@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from 'react';
 import './App.css';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {accessToken} from './env';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic21pdGhidW5rcyIsImEiOiJjbTM5bDZrZG4xN2E5MmlwdGxqbXA2ZXc3In0.Y2O5J7Dl_8ViBPH2BZblNg';
+mapboxgl.accessToken = accessToken;
 
 function App() {
   const mapContainerRef = useRef(null);
@@ -14,7 +15,6 @@ function App() {
       style: 'mapbox://styles/mapbox/streets-v9', 
       center: [-74.6551, 40.3431], 
       zoom: 14, 
-      //test
     });
 
     return () => map.remove();
