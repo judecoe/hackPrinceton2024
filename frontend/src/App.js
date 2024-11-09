@@ -15,7 +15,6 @@ function App() {
       style: 'mapbox://styles/mapbox/streets-v9', 
       center: [-74.6551, 40.3431], 
       zoom: 14, 
-      //test
     });
 
     return () => map.remove();
