@@ -1,30 +1,15 @@
-import React, { useRef, useEffect } from 'react';
-import './App.css';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import {accessToken} from './env';
-
-mapboxgl.accessToken = accessToken;
+import React from 'react';
+import Map from './Map';
 
 function App() {
-  const mapContainerRef = useRef(null);
+    return (
+        <div className="App">
+            <Map />
+            <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet"></link>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
 
-  useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v9', 
-      center: [-74.6551, 40.3431], 
-      zoom: 14, 
-    });
-
-    return () => map.remove();
-  }, []);
-
-  return (
-    <div style={{ height: '100vh' }}>
-      <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
