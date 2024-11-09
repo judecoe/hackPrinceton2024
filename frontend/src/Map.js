@@ -47,16 +47,16 @@ const Map = () => {
 
     return (
         <div className="map-container">
-            {}
+            {/* Sidebar as an overlay with transition */}
             <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
                 <button onClick={closeSidebar} className="close-button">
-                    Close
+                    &times;
                 </button>
                 <h2>Frist Campus Center</h2>
                 <p>This is information about Frist Campus Center. You can add additional details here to provide more information to the user.</p>
             </div>
 
-            {}
+            {/* Map Container */}
             <div ref={mapContainerRef} className="map" />
         </div>
     );

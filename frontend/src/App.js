@@ -1,15 +1,13 @@
 import React from 'react';
-import Map from './Map';
+import Mask from './Mask';
 
-function App() {
+const App = () => {
     return (
         <div className="App">
-            <Map />
-            <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet"></link>
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
-
+            {/* Mask Component with Mapbox Map */}
+            <Mask />
         </div>
     );
-}
+};
 
 export default App;
