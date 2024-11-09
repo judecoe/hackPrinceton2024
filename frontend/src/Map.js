@@ -2,40 +2,109 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { accessToken } from './env';
+import StudyInfo from './StudyInfo';
+import ZoomAndDirection from './ZoomAndDirection';
 import './Map.css';
 
 mapboxgl.accessToken = accessToken;
 
+const markerData = [
+    {
+        id: 1,
+        coordinates: [-74.655154, 40.346720],
+        title: "Benches Outside Frist",
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Princeton_Frist_Campus_Center_back.jpg",
+        rating: "6.9/10",
+        noiseLevel: "Somewhat quiet",
+        busyness: "Average",
+        aesthetic: "Nature",
+        setting: "Outdoor"
+    },
+    {
+        id: 2,
+        coordinates: [-74.65741249376822, 40.34957357856974],
+        title: "Firestone Library",
+        imageUrl: "https://example.com/another-image.jpg",
+        rating: "8.9/10",
+        noiseLevel: "Quiet",
+        busyness: "Somewhat busy",
+        aesthetic: "Traditional",
+        setting: "Indoor"
+    },
+    {
+        id: 3,
+        coordinates: [-74.65372722414959, 40.35003201846974],
+        title: "Princeton University Press Courtyard",
+        imageUrl: "",
+        rating: "6.8/10",
+        noiseLevel: "Quiet",
+        busyness: "Low-Key",
+        aesthetic: "Nature",
+        setting: "Outdoor"
+    },
+    {
+        id: 4,
+        coordinates: [-74.6549095221592, 40.3505011475726],
+        title: "Lewis Center for the Arts Courtyard",
+        imageUrl: "",
+        rating: "6.3/10",
+        noiseLevel: "Quiet",
+        busyness: "Low-Key",
+        aesthetic: "Nature",
+        setting: "Outdoor"
+    },
+    {
+        id: 5,
+        coordinates: [-74.65607099034348, 40.349751868901336],
+        title: "Green Hall Sanctuary",
+        imageUrl: "",
+        rating: "7.0/10",
+        noiseLevel: "Quiet",
+        busyness: "Empty",
+        aesthetic: "Nature",
+        setting: "Outdoor"
+    },
+];
+
 const Map = () => {
     const mapContainerRef = useRef(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [selectedMarker, setSelectedMarker] = useState(null);
     const mapRef = useRef(null);
 
     useEffect(() => {
-        const fristCoordinates = [-74.655154, 40.346720];
-
         const map = new mapboxgl.Map({
             container: mapContainerRef.current,
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: fristCoordinates,
+            center: [-74.655, 40.345],
             zoom: 15,
         });
 
         mapRef.current = map;
 
-        const markerElement = document.createElement('img');
-        markerElement.src = 'https://www.shutterstock.com/image-vector/coffee-book-logo-design-cup-260nw-1711719175.jpg';
-        markerElement.style.width = '40px';
-        markerElement.style.height = '40px';
-        markerElement.style.borderRadius = '50%';
-        markerElement.style.objectFit = 'cover';
+        markerData.forEach(marker => {
+            const markerElement = document.createElement('img');
+            markerElement.src = marker.imageUrl;
+            markerElement.style.width = '40px';
+            markerElement.style.height = '40px';
+            markerElement.style.borderRadius = '50%';
+            markerElement.style.objectFit = 'cover';
 
-        const marker = new mapboxgl.Marker(markerElement)
-            .setLngLat(fristCoordinates)
-            .addTo(map);
-        
-        marker.getElement().addEventListener('click', () => {
-            setIsSidebarOpen(true);
+            new mapboxgl.Marker(markerElement)
+                .setLngLat(marker.coordinates)
+                .addTo(map);
+
+            markerElement.addEventListener('click', () => {
+                setSelectedMarker(marker);
+                setIsSidebarOpen(true);
+
+                map.flyTo({
+                    center: marker.coordinates,
+                    zoom: 18,
+                    speed: 1.5,
+                    curve: 1,
+                });
+            });
         });
 
         return () => map.remove();
@@ -43,20 +112,25 @@ const Map = () => {
 
     const closeSidebar = () => {
         setIsSidebarOpen(false);
+        setSelectedMarker(null);
     };
 
     return (
         <div className="map-container">
-            {/* Sidebar as an overlay with transition */}
-            <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-                <button onClick={closeSidebar} className="close-button">
-                    &times;
-                </button>
-                <h2>Frist Campus Center</h2>
-                <p>This is information about Frist Campus Center. You can add additional details here to provide more information to the user.</p>
-            </div>
-
-            {/* Map Container */}
+            {selectedMarker && (
+                <StudyInfo
+                    isOpen={isSidebarOpen}
+                    onClose={closeSidebar}
+                    title={selectedMarker.title}
+                    imageUrl={selectedMarker.imageUrl}
+                    rating={selectedMarker.rating}
+                    noiseLevel={selectedMarker.noiseLevel}
+                    busyness={selectedMarker.busyness}
+                    aesthetic={selectedMarker.aesthetic}
+                    setting={selectedMarker.setting}
+                />
+            )}
+            <ZoomAndDirection map={mapRef.current} /> {/* Add Zoom Controls */}
             <div ref={mapContainerRef} className="map" />
         </div>
     );
