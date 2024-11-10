@@ -1,11 +1,10 @@
 import React from 'react';
-import Mask from './Mask';
+import Map from './Map';
 
 const App = () => {
     return (
         <div className="App">
-            {/* Mask Component with Mapbox Map */}
-            <Mask />
+            <Map />
         </div>
     );
 };
