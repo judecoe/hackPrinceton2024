@@ -1,0 +1,4 @@
+/node_modules
+firebase_credentials.json
+__pycache__/
+utils/
