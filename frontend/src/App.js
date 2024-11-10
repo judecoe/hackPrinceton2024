@@ -29,7 +29,6 @@ const App = () => {
 
     return (
         <div className="App">
-            <h1>Welcome to HackPrinceton App</h1>
             {user ? <Map /> : <Auth />}
         </div>
     );
