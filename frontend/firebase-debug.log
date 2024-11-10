@@ -1,0 +1,140 @@
+[debug] [2024-11-09T15:44:05.162Z] ----------------------------------------------------------------------
+[debug] [2024-11-09T15:44:05.164Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kiera\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-11-09T15:44:05.164Z] CLI Version:   13.24.2
+[debug] [2024-11-09T15:44:05.164Z] Platform:      win32
+[debug] [2024-11-09T15:44:05.164Z] Node Version:  v22.11.0
+[debug] [2024-11-09T15:44:05.164Z] Time:          Sat Nov 09 2024 10:44:05 GMT-0500 (Eastern Standard Time)
+[debug] [2024-11-09T15:44:05.164Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-09T15:44:05.168Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-09T15:44:05.168Z] > authorizing via signed-in user (kieranmurray2468@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\kiera\OneDrive\Desktop\vscode\hackPrinceton2024\frontend
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-11-09T15:44:23.562Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:23.562Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:23.563Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-11-09T15:44:23.899Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-09T15:44:23.899Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project college-surfing (College Surfing) 
+[info] 
+=== Firestore Setup
+[debug] [2024-11-09T15:44:26.032Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:26.032Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:26.032Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/college-surfing/services/firestore.googleapis.com [none]
+[debug] [2024-11-09T15:44:26.032Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/college-surfing/services/firestore.googleapis.com x-goog-quota-user=projects/college-surfing
+[debug] [2024-11-09T15:44:26.427Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/college-surfing/services/firestore.googleapis.com 200
+[debug] [2024-11-09T15:44:26.427Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/college-surfing/services/firestore.googleapis.com [omitted]
+[debug] [2024-11-09T15:44:26.427Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:26.427Z] Checked if tokens are valid: true, expires at: 1731169621681
+[debug] [2024-11-09T15:44:26.427Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/college-surfing/databases/(default) [none]
+[debug] [2024-11-09T15:44:26.565Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/college-surfing/databases/(default) 404
+[debug] [2024-11-09T15:44:26.565Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/college-surfing/databases/(default) {"error":{"code":404,"message":"Project 'college-surfing' or database '(default)' does not exist.","status":"NOT_FOUND"}}
+[debug] [2024-11-09T15:44:26.565Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/college-surfing/databases/(default) had HTTP Error: 404, Project 'college-surfing' or database '(default)' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'college-surfing' or database '(default)' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/college-surfing/databases/(default) had HTTP Error: 404, Project 'college-surfing' or database '(default)' does not exist.","status":404}
+[info] (default) does not exist in project college-surfing.
+[debug] [2024-11-09T15:44:26.566Z] database_type: DATABASE_DOES_NOT_EXIST
+[debug] [2024-11-09T16:47:55.658Z] ----------------------------------------------------------------------
+[debug] [2024-11-09T16:47:55.660Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kiera\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2024-11-09T16:47:55.660Z] CLI Version:   13.24.2
+[debug] [2024-11-09T16:47:55.660Z] Platform:      win32
+[debug] [2024-11-09T16:47:55.660Z] Node Version:  v22.11.0
+[debug] [2024-11-09T16:47:55.661Z] Time:          Sat Nov 09 2024 11:47:55 GMT-0500 (Eastern Standard Time)
+[debug] [2024-11-09T16:47:55.661Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-09T16:47:55.729Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-09T16:47:55.729Z] > authorizing via signed-in user (kieranmurray2468@gmail.com)
+[debug] [2024-11-09T16:47:55.729Z] [iam] checking project college-surfing for permissions ["firebase.projects.get"]
+[debug] [2024-11-09T16:47:55.730Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:55.730Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:55.731Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions [none]
+[debug] [2024-11-09T16:47:55.731Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions x-goog-quota-user=projects/college-surfing
+[debug] [2024-11-09T16:47:55.731Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-09T16:47:55.915Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions 200
+[debug] [2024-11-09T16:47:55.915Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-09T16:47:55.915Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:55.915Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:55.915Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing [none]
+[debug] [2024-11-09T16:47:56.093Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing 200
+[debug] [2024-11-09T16:47:56.093Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing {"projectId":"college-surfing","projectNumber":"486454469198","displayName":"College Surfing","name":"projects/college-surfing","resources":{"hostingSite":"college-surfing"},"state":"ACTIVE","etag":"1_b3d22a5a-233e-494d-b740-31aa9c1dad7b"}
+[info] 
+[info] === Serving from 'C:\Users\kiera\OneDrive\Desktop\vscode\hackPrinceton2024'...
+[info] 
+[debug] [2024-11-09T16:47:56.095Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.095Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.095Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites 
+[debug] [2024-11-09T16:47:56.478Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites 200
+[debug] [2024-11-09T16:47:56.478Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites {"sites":[{"name":"projects/college-surfing/sites/college-surfing","defaultUrl":"https://college-surfing.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-09T16:47:56.478Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.478Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.478Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config [none]
+[debug] [2024-11-09T16:47:56.911Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config 200
+[debug] [2024-11-09T16:47:56.911Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config {"projectId":"college-surfing","appId":"1:486454469198:web:c05f409c0f0e349415d91f","storageBucket":"college-surfing.firebasestorage.app","apiKey":"AIzaSyDjs_g9yeydqqWLjdfrecTMpoPEKJRTTvo","authDomain":"college-surfing.firebaseapp.com","messagingSenderId":"486454469198","measurementId":"G-ZFWRK1JRS9"}
+[debug] [2024-11-09T16:47:56.914Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.914Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:47:56.914Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing [none]
+[debug] [2024-11-09T16:47:57.089Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing 200
+[debug] [2024-11-09T16:47:57.089Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing {"projectId":"college-surfing","projectNumber":"486454469198","displayName":"College Surfing","name":"projects/college-surfing","resources":{"hostingSite":"college-surfing"},"state":"ACTIVE","etag":"1_b3d22a5a-233e-494d-b740-31aa9c1dad7b"}
+[info] i  hosting[college-surfing]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[college-surfing]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [09/Nov/2024:16:47:59 +0000] "GET / HTTP/1.1" 500 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [09/Nov/2024:16:47:59 +0000] \"GET / HTTP/1.1\" 500 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\""}}
+[info] i  hosting: ::1 - - [09/Nov/2024:16:48:00 +0000] "GET /favicon.ico HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [09/Nov/2024:16:48:00 +0000] \"GET /favicon.ico HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\""}}
+[debug] [2024-11-09T16:48:20.807Z] ----------------------------------------------------------------------
+[debug] [2024-11-09T16:48:20.809Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kiera\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --port 3000
+[debug] [2024-11-09T16:48:20.809Z] CLI Version:   13.24.2
+[debug] [2024-11-09T16:48:20.809Z] Platform:      win32
+[debug] [2024-11-09T16:48:20.809Z] Node Version:  v22.11.0
+[debug] [2024-11-09T16:48:20.809Z] Time:          Sat Nov 09 2024 11:48:20 GMT-0500 (Eastern Standard Time)
+[debug] [2024-11-09T16:48:20.809Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-09T16:48:20.873Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-09T16:48:20.873Z] > authorizing via signed-in user (kieranmurray2468@gmail.com)
+[debug] [2024-11-09T16:48:20.873Z] [iam] checking project college-surfing for permissions ["firebase.projects.get"]
+[debug] [2024-11-09T16:48:20.874Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:20.874Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:20.875Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions [none]
+[debug] [2024-11-09T16:48:20.875Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions x-goog-quota-user=projects/college-surfing
+[debug] [2024-11-09T16:48:20.875Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-09T16:48:21.039Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions 200
+[debug] [2024-11-09T16:48:21.040Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/college-surfing:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-11-09T16:48:21.040Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.040Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.040Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing [none]
+[debug] [2024-11-09T16:48:21.240Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing 200
+[debug] [2024-11-09T16:48:21.241Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing {"projectId":"college-surfing","projectNumber":"486454469198","displayName":"College Surfing","name":"projects/college-surfing","resources":{"hostingSite":"college-surfing"},"state":"ACTIVE","etag":"1_b3d22a5a-233e-494d-b740-31aa9c1dad7b"}
+[info] 
+[info] === Serving from 'C:\Users\kiera\OneDrive\Desktop\vscode\hackPrinceton2024'...
+[info] 
+[debug] [2024-11-09T16:48:21.242Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.242Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.242Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites 
+[debug] [2024-11-09T16:48:21.611Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites 200
+[debug] [2024-11-09T16:48:21.611Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/college-surfing/sites {"sites":[{"name":"projects/college-surfing/sites/college-surfing","defaultUrl":"https://college-surfing.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-09T16:48:21.611Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.611Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:21.611Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config [none]
+[debug] [2024-11-09T16:48:22.040Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config 200
+[debug] [2024-11-09T16:48:22.041Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing/webApps/-/config {"projectId":"college-surfing","appId":"1:486454469198:web:c05f409c0f0e349415d91f","storageBucket":"college-surfing.firebasestorage.app","apiKey":"AIzaSyDjs_g9yeydqqWLjdfrecTMpoPEKJRTTvo","authDomain":"college-surfing.firebaseapp.com","messagingSenderId":"486454469198","measurementId":"G-ZFWRK1JRS9"}
+[debug] [2024-11-09T16:48:22.043Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:22.043Z] Checked if tokens are valid: true, expires at: 1731172567905
+[debug] [2024-11-09T16:48:22.044Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing [none]
+[debug] [2024-11-09T16:48:22.267Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing 200
+[debug] [2024-11-09T16:48:22.268Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/college-surfing {"projectId":"college-surfing","projectNumber":"486454469198","displayName":"College Surfing","name":"projects/college-surfing","resources":{"hostingSite":"college-surfing"},"state":"ACTIVE","etag":"1_b3d22a5a-233e-494d-b740-31aa9c1dad7b"}
+[info] i  hosting[college-surfing]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[college-surfing]: Local server: http://localhost:3000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:3000\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [09/Nov/2024:16:48:23 +0000] "GET / HTTP/1.1" 500 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [09/Nov/2024:16:48:23 +0000] \"GET / HTTP/1.1\" 500 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\""}}
+[info] i  hosting: ::1 - - [09/Nov/2024:16:48:29 +0000] "GET / HTTP/1.1" 500 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [09/Nov/2024:16:48:29 +0000] \"GET / HTTP/1.1\" 500 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 OPR/114.0.0.0\""}}
