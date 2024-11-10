@@ -1,3 +1,4 @@
+// Map.js
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -17,7 +18,11 @@ const markerData = [
         noiseLevel: "Somewhat quiet",
         traffic: "Average",
         aesthetic: "Nature",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Nice place, but it can get chilly.", upvotes: 3, downvotes: 0 },
+            { text: "Great spot for people-watching.", upvotes: 7, downvotes: 2 }
+        ]
     },
     {
         coordinates: [-74.65741249376822, 40.34957357856974],
@@ -27,7 +32,11 @@ const markerData = [
         noiseLevel: "Moderate",
         traffic: "Somewhat busy",
         aesthetic: "Traditional",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Ideal for quiet studying.", upvotes: 12, downvotes: 1 },
+            { text: "Could use more natural light.", upvotes: 5, downvotes: 3 }
+        ]
     },
     {
         coordinates: [-74.65372722414959, 40.35003201846974],
@@ -37,7 +46,11 @@ const markerData = [
         noiseLevel: "Quiet",
         traffic: "Low-Key",
         aesthetic: "Nature",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Nice place to read a book.", upvotes: 8, downvotes: 1 },
+            { text: "Watch out for squirrels!", upvotes: 3, downvotes: 0 }
+        ]
     },
     {
         coordinates: [-74.6561289153119, 40.349764179655125],
@@ -47,7 +60,11 @@ const markerData = [
         noiseLevel: "Silent",
         traffic: "Empty",
         aesthetic: "Traditional",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Very peaceful, love studying here.", upvotes: 10, downvotes: 0 },
+            { text: "A bit isolated, but that's a plus for me.", upvotes: 4, downvotes: 1 }
+        ]
     },
     {
         coordinates: [-74.65631336087017, 40.34968115910778],
@@ -57,7 +74,11 @@ const markerData = [
         noiseLevel: "Quiet",
         traffic: "Low-Key",
         aesthetic: "Peaceful",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Cozy and quiet, great for group projects.", upvotes: 6, downvotes: 0 },
+            { text: "Can get a bit warm inside.", upvotes: 2, downvotes: 2 }
+        ]
     },
     {
         coordinates: [-74.65632659866701, 40.34792680768454],
@@ -67,7 +88,11 @@ const markerData = [
         noiseLevel: "Quiet",
         traffic: "Empty",
         aesthetic: "Peaceful",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Love the architecture around here.", upvotes: 9, downvotes: 1 },
+            { text: "It’s peaceful, but benches are uncomfortable.", upvotes: 4, downvotes: 3 }
+        ]
     },
     {
         coordinates: [-74.65277329169322, 40.35040282826641],  
@@ -77,7 +102,11 @@ const markerData = [
         noiseLevel: "Moderate",
         traffic: "Moderate",
         aesthetic: "Ergonomic",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Comfortable seating, good for group study.", upvotes: 8, downvotes: 0 },
+            { text: "Sometimes hard to find a free spot.", upvotes: 3, downvotes: 1 }
+        ]
     },
     {
         coordinates: [-74.65214933032735, 40.35001448551751], 
@@ -87,7 +116,11 @@ const markerData = [
         noiseLevel: "Moderate",
         traffic: "Busy",
         aesthetic: "Chill",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Not really a study spot, more for passing through.", upvotes: 2, downvotes: 6 },
+            { text: "Great if you just need to quickly check something.", upvotes: 3, downvotes: 2 }
+        ]
     },
     {
         coordinates: [-74.65231823566275, 40.350102917342966],  
@@ -97,7 +130,11 @@ const markerData = [
         noiseLevel: "Moderate",
         traffic: "Average",
         aesthetic: "Casual",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Good view and fresh air.", upvotes: 5, downvotes: 1 },
+            { text: "Could use some shade on sunny days.", upvotes: 4, downvotes: 3 }
+        ]
     },
     {
         coordinates: [-74.65212410947404, 40.350074258019845], 
@@ -107,68 +144,83 @@ const markerData = [
         noiseLevel: "Moderate",
         traffic: "Busy",
         aesthetic: "Traditional",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Great space for focused work.", upvotes: 7, downvotes: 2 },
+            { text: "Can get crowded during exams.", upvotes: 4, downvotes: 0 }
+        ]
     },
     {
-        coordinates: [-74.65225318814403, 40.35005799191212],  // Adjust as needed
+        coordinates: [-74.65225318814403, 40.35005799191212],
         title: "Room 301",
         imageUrl: "./images/Room 301.JPG",
         rating: "6.5/10",
         noiseLevel: "Quiet",
         traffic: "Low",
         aesthetic: "Academic",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Good place for quiet, individual work.", upvotes: 6, downvotes: 0 },
+            { text: "Feels a bit cramped.", upvotes: 3, downvotes: 2 }
+        ]
     },
     {
-        coordinates: [-74.6521983043001, 40.350030107146885],  // Adjust as needed
+        coordinates: [-74.6521983043001, 40.350030107146885],
         title: "Room 302",
         imageUrl: "./images/Room 302.JPG",
         rating: "7.0/10",
         noiseLevel: "Quiet",
         traffic: "Low",
         aesthetic: "Academic",
-        setting: "Indoor"
+        setting: "Indoor",
+        comments: [
+            { text: "Spacious and quiet, love it here.", upvotes: 9, downvotes: 1 },
+            { text: "Sometimes feels a bit too quiet.", upvotes: 2, downvotes: 3 }
+        ]
     },
     {
-        coordinates: [-74.65792101719518, 40.34756204307376],  // Adjust as needed
+        coordinates: [-74.65792101719518, 40.34756204307376],
         title: "McCormick Hall Patio",
         imageUrl: "https://paw.princeton.edu/sites/default/files/styles/news_article_desktop/public/images/content/OTC-PUAMweb.jpg?itok=up70BJCA",
         rating: "5.4/10",
         noiseLevel: "Moderate",
         traffic: "High",
         aesthetic: "Modern",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Nice spot but very crowded.", upvotes: 3, downvotes: 5 },
+            { text: "Great view of campus though!", upvotes: 6, downvotes: 2 }
+        ]
     },
     {
-        coordinates: [-74.65792101719518, 40.34756204307376],  // Adjust as needed
-        title: "McCormick Hall Patio",
-        imageUrl: "https://paw.princeton.edu/sites/default/files/styles/news_article_desktop/public/images/content/OTC-PUAMweb.jpg?itok=up70BJCA",
-        rating: "5.4/10",
-        noiseLevel: "Moderate",
-        traffic: "High",
-        aesthetic: "Modern",
-        setting: "Outdoor"
-    },
-    {
-        coordinates: [-74.66016706095756, 40.34754354083629],  // Adjust as needed
+        coordinates: [-74.66016706095756, 40.34754354083629],
         title: "Witherspoon Hall Patio",
         imageUrl: "./images/Witherspoon Hall Outside.jpeg",
         rating: "5.7/10",
         noiseLevel: "Moderate",
         traffic: "High",
         aesthetic: "Traditional",
-        setting: "Outdoor"
+        setting: "Outdoor",
+        comments: [
+            { text: "Nice outdoor seating area.", upvotes: 7, downvotes: 1 },
+            { text: "Busy during peak hours.", upvotes: 5, downvotes: 3 }
+        ]
     },
     {
-        coordinates: [-74.66022139790303, 40.34749177595373],  // Adjust as needed
+        coordinates: [-74.66022139790303, 40.34749177595373],
         title: "Witherspoon Study Room",
         imageUrl: "./images/Witherspoon Hall.jpeg",
         rating: "7.7/10",
         noiseLevel: "Low",
         traffic: "Moderate",
         aesthetic: "Traditional",
-        setting: "Indoor"
-    },
+        setting: "Indoor",
+        comments: [
+            { text: "Perfect for focused studying, good atmosphere.", upvotes: 10, downvotes: 0 },
+            { text: "Can be a bit too quiet for some people.", upvotes: 4, downvotes: 2 }
+        ]
+    }
+
 ];
 
 
@@ -185,12 +237,12 @@ const Map = () => {
             center: [-74.655, 40.345],
             zoom: 15,
         });
-    
+
         map.setMinZoom(13); 
         map.setMaxZoom(19);
-    
+
         mapRef.current = map;
-    
+
         markerData.forEach(marker => {
             const markerElement = document.createElement('img');
             markerElement.src = marker.imageUrl;
@@ -198,15 +250,15 @@ const Map = () => {
             markerElement.style.height = '40px';
             markerElement.style.borderRadius = '50%';
             markerElement.style.objectFit = 'cover';
-    
+
             new mapboxgl.Marker(markerElement)
                 .setLngLat(marker.coordinates)
                 .addTo(map);
-    
+
             markerElement.addEventListener('click', () => {
                 setSelectedMarker(marker);
                 setIsSidebarOpen(true);
-    
+
                 map.flyTo({
                     center: marker.coordinates,
                     zoom: 18,
@@ -215,13 +267,29 @@ const Map = () => {
                 });
             });
         });
-    
+
         return () => map.remove();
     }, []);
 
     const closeSidebar = () => {
         setIsSidebarOpen(false);
         setSelectedMarker(null);
+    };
+
+    const handleUpvote = (commentIndex) => {
+        if (!selectedMarker) return;
+        const updatedComments = selectedMarker.comments.map((comment, index) =>
+            index === commentIndex ? { ...comment, upvotes: comment.upvotes + 1 } : comment
+        );
+        setSelectedMarker({ ...selectedMarker, comments: updatedComments });
+    };
+
+    const handleDownvote = (commentIndex) => {
+        if (!selectedMarker) return;
+        const updatedComments = selectedMarker.comments.map((comment, index) =>
+            index === commentIndex ? { ...comment, downvotes: comment.downvotes + 1 } : comment
+        );
+        setSelectedMarker({ ...selectedMarker, comments: updatedComments });
     };
 
     return (
@@ -237,9 +305,12 @@ const Map = () => {
                     traffic={selectedMarker.traffic}
                     aesthetic={selectedMarker.aesthetic}
                     setting={selectedMarker.setting}
+                    comments={selectedMarker.comments} 
+                    handleUpvote={handleUpvote} 
+                    handleDownvote={handleDownvote} 
                 />
             )}
-            <ZoomAndDirection map={mapRef.current} /> {/* Add Zoom Controls */}
+            <ZoomAndDirection map={mapRef.current} />
             <div ref={mapContainerRef} className="map" />
         </div>
     );
