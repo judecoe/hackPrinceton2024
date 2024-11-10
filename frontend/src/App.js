@@ -2,6 +2,7 @@ import React from 'react';
 import Map from './Map';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { db } from './firebase';
 
 const firebaseConfig = {   // lowercase 'f'
   apiKey: "AIzaSyDjs_g9yeydqqWLjdfrecTMpoPEKJRTTvo",
