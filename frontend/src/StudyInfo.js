@@ -8,7 +8,7 @@ const StudyInfo = ({
     imageUrl,
     rating = "Not rated",
     noiseLevel = "Unknown",
-    busyness = "Unknown",
+    traffic = "Unknown",
     aesthetic = "None",
     setting = "Unspecified",
 }) => {
@@ -18,7 +18,7 @@ const StudyInfo = ({
         { label: "Aesthetic", value: aesthetic, className: "tag-aesthetic" },
         { label: "Setting", value: setting, className: "tag-setting" },
         { label: "Noise Level", value: noiseLevel, className: "tag-noise" },
-        { label: "Busyness", value: busyness, className: "tag-busyness" },
+        { label: "Traffic", value: traffic, className: "tag-traffic" },
     ];
 
     return (

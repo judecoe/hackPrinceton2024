@@ -16,7 +16,7 @@ const markerData = [
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Princeton_Frist_Campus_Center_back.jpg",
         rating: "6.9/10",
         noiseLevel: "Somewhat quiet",
-        busyness: "Average",
+        traffic: "Average",
         aesthetic: "Nature",
         setting: "Outdoor"
     },
@@ -27,7 +27,7 @@ const markerData = [
         imageUrl: "https://example.com/another-image.jpg",
         rating: "8.9/10",
         noiseLevel: "Quiet",
-        busyness: "Somewhat busy",
+        traffic: "Somewhat busy",
         aesthetic: "Traditional",
         setting: "Indoor"
     },
@@ -35,10 +35,10 @@ const markerData = [
         id: 3,
         coordinates: [-74.65372722414959, 40.35003201846974],
         title: "Princeton University Press Courtyard",
-        imageUrl: "",
+        imageUrl: "./images/Princeton University Press.jpeg",
         rating: "6.8/10",
         noiseLevel: "Quiet",
-        busyness: "Low-Key",
+        traffic: "Low-Key",
         aesthetic: "Nature",
         setting: "Outdoor"
     },
@@ -49,7 +49,7 @@ const markerData = [
         imageUrl: "",
         rating: "6.3/10",
         noiseLevel: "Quiet",
-        busyness: "Low-Key",
+        traffic: "Low-Key",
         aesthetic: "Nature",
         setting: "Outdoor"
     },
@@ -60,7 +60,7 @@ const markerData = [
         imageUrl: "",
         rating: "7.0/10",
         noiseLevel: "Quiet",
-        busyness: "Empty",
+        traffic: "Empty",
         aesthetic: "Nature",
         setting: "Outdoor"
     },
@@ -79,6 +79,9 @@ const Map = () => {
             center: [-74.655, 40.345],
             zoom: 15,
         });
+
+        map.setMinZoom(13); 
+        map.setMaxZoom(19); 
 
         mapRef.current = map;
 
@@ -125,7 +128,7 @@ const Map = () => {
                     imageUrl={selectedMarker.imageUrl}
                     rating={selectedMarker.rating}
                     noiseLevel={selectedMarker.noiseLevel}
-                    busyness={selectedMarker.busyness}
+                    traffic={selectedMarker.traffic}
                     aesthetic={selectedMarker.aesthetic}
                     setting={selectedMarker.setting}
                 />
