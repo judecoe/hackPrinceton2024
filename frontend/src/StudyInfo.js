@@ -14,10 +14,10 @@ const StudyInfo = ({
     comments, 
     handleUpvote, 
     handleDownvote, 
-    addComment // Pass this function from parent to handle comment addition
+    addComment 
 }) => {
     const [voted, setVoted] = useState({});
-    const [newComment, setNewComment] = useState(""); // State for new comment text
+    const [newComment, setNewComment] = useState(""); 
     
     if (!isOpen) return null;
 
@@ -43,8 +43,8 @@ const StudyInfo = ({
     const handleCommentSubmit = (e) => {
         e.preventDefault();
         if (newComment.trim()) {
-            addComment(newComment); // Call the addComment function passed from parent
-            setNewComment(""); // Clear the input
+            addComment(newComment); 
+            setNewComment(""); 
         }
     };
 
@@ -59,7 +59,20 @@ const StudyInfo = ({
             <p><span className="tag-label">Aesthetic:</span> <span className="tag-value">{aesthetic}</span></p>
             <p><span className="tag-label">Setting:</span> <span className="tag-value">{setting}</span></p>
 
+            {}
+            
+
             <h3>Comments:</h3>
+            <form onSubmit={handleCommentSubmit} className="comment-form">
+                <input
+                    type="text"
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    placeholder="Write a comment..."
+                    className="comment-input"
+                />
+                <button type="submit" className="comment-submit">Post</button>
+            </form>
             <div className="comments-section">
                 {comments && comments.length > 0 ? (
                     comments.map((comment, index) => (
@@ -85,18 +98,6 @@ const StudyInfo = ({
                     <p>No comments yet. Be the first to add one!</p>
                 )}
             </div>
-
-            {/* Comment form */}
-            <form onSubmit={handleCommentSubmit} className="comment-form">
-                <input
-                    type="text"
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Write a comment..."
-                    className="comment-input"
-                />
-                <button type="submit" className="comment-submit">Post</button>
-            </form>
         </div>
     );
 };
