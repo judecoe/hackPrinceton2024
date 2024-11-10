@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Map from './Map';
 import Auth from './Auth';
 import { auth } from './firebaseConfig';
-=======
 import { db } from './firebase';
 
 const App = () => {
@@ -28,7 +27,6 @@ const App = () => {
 
     return (
         <div className="App">
-            <h1>Welcome to HackPrinceton App</h1>
             {user ? <Map /> : <Auth />}
         </div>
     );
