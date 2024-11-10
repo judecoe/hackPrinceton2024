@@ -1,0 +1,64 @@
+/* src/Auth.css */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height to cover the entire viewport */
+    background-color: #f0f0f0; /* Light background to contrast with the form */
+  }
+  
+  .auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .auth-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  .auth-box input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .auth-button, .toggle-button, .delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .auth-button {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+  }
+  
+  .toggle-button {
+    background: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .delete-button {
+    margin-top: 20px;
+    background-color: #dc3545;
+    color: white;
+    width: 100%;
+  }
+  
