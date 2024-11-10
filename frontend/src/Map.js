@@ -1,4 +1,3 @@
-// Map.js
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -21,7 +20,9 @@ const markerData = [
         setting: "Outdoor",
         comments: [
             { text: "Nice place, but it can get chilly.", upvotes: 3, downvotes: 0 },
-            { text: "Great spot for people-watching.", upvotes: 7, downvotes: 2 }
+            { text: "Great spot for people-watching.", upvotes: 7, downvotes: 2 },
+            { text: "Ideal for quiet studying.", upvotes: 12, downvotes: 1 },
+            { text: "Could use more natural light.", upvotes: 5, downvotes: 3 }
         ]
     },
     {
@@ -292,8 +293,29 @@ const Map = () => {
         setSelectedMarker({ ...selectedMarker, comments: updatedComments });
     };
 
+    const addComment = (text) => {
+        if (!selectedMarker) return;
+        const newComment = { text, upvotes: 0, downvotes: 0 };
+        const updatedComments = [...selectedMarker.comments, newComment];
+        setSelectedMarker({ ...selectedMarker, comments: updatedComments });
+    };
+
+
     return (
         <div className="map-container">
+            {}
+            {!isSidebarOpen && (
+                <div className="search-bar">
+                    <input type="text" placeholder="Search..." className="search-input" />
+                </div>
+            )}
+            
+            <div className="logo-top-right">
+                <img src="https://i.ibb.co/qDSKykT/logocollegesurfing.png" alt="CollegeSurfing Logo" />
+            </div>
+            
+            <div className="banner-overlay">Welcome to CollegeSurfing</div>
+            
             {selectedMarker && (
                 <StudyInfo
                     isOpen={isSidebarOpen}
@@ -308,8 +330,10 @@ const Map = () => {
                     comments={selectedMarker.comments} 
                     handleUpvote={handleUpvote} 
                     handleDownvote={handleDownvote} 
+                    addComment={addComment}
                 />
             )}
+            
             <ZoomAndDirection map={mapRef.current} />
             <div ref={mapContainerRef} className="map" />
         </div>
