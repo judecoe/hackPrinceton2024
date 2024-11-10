@@ -1,7 +1,6 @@
-// src/firebaseConfig.js
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// import other Firebase services you need (e.g., Auth, Firestore, Storage)
+// src/firebase.js
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDjs_g9yeydqqWLjdfrecTMpoPEKJRTTvo",
@@ -15,7 +14,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
-// Export the app instance and any Firebase services you need to use
-export { app, analytics };
+export { db };
