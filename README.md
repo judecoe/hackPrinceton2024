@@ -2,8 +2,6 @@
 
 A platform for discovering, rating, and discussing the best study and hackathon spots on campus.
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
 ## Table of Contents
 - [Introduction](#introduction)
 - [Problem Statement](#problem-statement)
