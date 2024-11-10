@@ -293,9 +293,17 @@ const Map = () => {
         setSelectedMarker({ ...selectedMarker, comments: updatedComments });
     };
 
+    const addComment = (text) => {
+        if (!selectedMarker) return;
+        const newComment = { text, upvotes: 0, downvotes: 0 };
+        const updatedComments = [...selectedMarker.comments, newComment];
+        setSelectedMarker({ ...selectedMarker, comments: updatedComments });
+    };
+
+
     return (
         <div className="map-container">
-            {/* Conditionally render the search bar based on isSidebarOpen */}
+            {}
             {!isSidebarOpen && (
                 <div className="search-bar">
                     <input type="text" placeholder="Search..." className="search-input" />
@@ -322,6 +330,7 @@ const Map = () => {
                     comments={selectedMarker.comments} 
                     handleUpvote={handleUpvote} 
                     handleDownvote={handleDownvote} 
+                    addComment={addComment}
                 />
             )}
             
